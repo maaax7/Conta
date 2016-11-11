@@ -9,10 +9,9 @@ namespace Conta
     public class Conta
     {
         public double saldo { get; set; }
-        public string titular { get; set; }
+        public Cliente titular { get; set; }
         public int numero { get; set; }
         public int agencia { get; set; }
-        public string cpf { get; set; }
 
         public void Sacar(double valorASacar)
         {

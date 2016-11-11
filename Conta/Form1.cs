@@ -22,17 +22,22 @@ namespace Conta
             Conta conta = new Conta();
             conta.numero = 1;
             conta.saldo = 1500.0;
-            conta.titular = "Jabidailsom";
+            //conta.titular = "Jabidailsom";
 
             Conta conta1 = new Conta();
             conta1.numero = 2;
             conta1.saldo = 2000.0;
-            conta1.titular = "Pereira";
+            Cliente cliente = new Cliente();
+            cliente.nome = "Jabidailsom";
+            cliente.rg = "423423";
+            cliente.cpf = "342332432";
+            cliente.endereco = "asuhuash";
+            conta1.titular = cliente;
             conta1.agencia = 23234;
-            conta1.cpf = "342332432";
+            
 
-            MessageBox.Show("Numero: " + conta1.numero + "\nTitular: " + conta1.titular + "\nSaldo: " + conta1.saldo + 
-                            "\nAgencia" + conta1.agencia + "\nCPF: " + conta1.cpf);
+            MessageBox.Show("Numero: " + conta1.numero + "\nTitular: " + conta1.titular.nome + "\nSaldo: " + conta1.saldo + 
+                            "\nAgencia: " + conta1.agencia + "\nCPF: " + conta1.titular.cpf);
         }
     }
 }
