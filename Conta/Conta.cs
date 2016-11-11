@@ -36,7 +36,7 @@ namespace Conta
             destino.Depositar(valorASerTransferido);
         }
 
-        public double CalculaRendimentoAnual()
+        public double CalcularRendimentoAnual()
         {
             double saldoNaqueleMes = this.saldo;
 
