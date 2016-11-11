@@ -19,25 +19,21 @@ namespace Conta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conta conta = new Conta();
-            conta.numero = 1;
-            conta.saldo = 1500.0;
-            //conta.titular = "Jabidailsom";
+            Conta contaGuilherme = new Conta();
+            contaGuilherme.numero = 1;
+            contaGuilherme.saldo = 1500.0;
 
-            Conta conta1 = new Conta();
-            conta1.numero = 2;
-            conta1.saldo = 2000.0;
-            Cliente cliente = new Cliente();
-            cliente.nome = "Jabidailsom";
-            cliente.rg = "423423";
-            cliente.cpf = "342332432";
-            cliente.endereco = "asuhuash";
-            conta1.titular = cliente;
-            conta1.agencia = 23234;
-            
+            Cliente clienteGuilherme = new Cliente();
+            clienteGuilherme.nome = "Guilherme";
+            clienteGuilherme.idade = 17;
 
-            MessageBox.Show("Numero: " + conta1.numero + "\nTitular: " + conta1.titular.nome + "\nSaldo: " + conta1.saldo + 
-                            "\nAgencia: " + conta1.agencia + "\nCPF: " + conta1.titular.cpf);
+            contaGuilherme.titular = clienteGuilherme;
+
+            bool sacou = contaGuilherme.Sacar(300.0);
+            if (sacou)
+                MessageBox.Show("Saldo da Conta do Guilherme após saque: " + contaGuilherme.saldo);
+            else
+                MessageBox.Show("Não foi possível sacar da conta do Guilherme");
         }
     }
 }

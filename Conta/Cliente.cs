@@ -13,5 +13,11 @@ namespace Conta
         public string rg { get; set; }
         public string cpf { get; set; }
         public string endereco { get; set; }
+        public int idade { get; set; }
+
+        public bool EhMaiorDeIdade()
+        {
+            return this.idade >= 18;
+        }
     }
 }

@@ -13,12 +13,18 @@ namespace Conta
         public int numero { get; set; }
         public int agencia { get; set; }
 
-        public void Sacar(double valorASacar)
+        public bool Sacar(double valorASacar)
         {
-            if (valorASacar <= this.saldo && valorASacar >= 0)
+            double saqueMaximoMenorIdade = 200.0;
+            bool permiteSacar = (this.titular != null && this.titular.EhMaiorDeIdade()) ? true : valorASacar <= saqueMaximoMenorIdade ? true : false;
+
+            if (valorASacar <= this.saldo && valorASacar >= 0 && permiteSacar)
             {
                 this.saldo -= valorASacar;
+                return true;
             }
+
+            return false;
         }
 
         public void Depositar(double valorADepositar)
