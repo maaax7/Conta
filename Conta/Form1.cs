@@ -24,7 +24,15 @@ namespace Conta
             conta.saldo = 1500.0;
             conta.titular = "Jabidailsom";
 
-            MessageBox.Show("Numero: " + conta.numero + "\nTitular: " + conta.titular + "\nSaldo: " + conta.saldo);
+            Conta conta1 = new Conta();
+            conta1.numero = 2;
+            conta1.saldo = 2000.0;
+            conta1.titular = "Pereira";
+            conta1.agencia = 23234;
+            conta1.cpf = "342332432";
+
+            MessageBox.Show("Numero: " + conta1.numero + "\nTitular: " + conta1.titular + "\nSaldo: " + conta1.saldo + 
+                            "\nAgencia" + conta1.agencia + "\nCPF: " + conta1.cpf);
         }
     }
 }
