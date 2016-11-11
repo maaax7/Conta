@@ -1,0 +1,9 @@
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\bin\Debug\Conta.exe.config
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\bin\Debug\Conta.exe
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\bin\Debug\Conta.pdb
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.csprojResolveAssemblyReference.cache
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.Form1.resources
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.Properties.Resources.resources
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.csproj.GenerateResource.Cache
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.exe
+C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.pdb
