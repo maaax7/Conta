@@ -6,18 +6,28 @@ using System.Threading.Tasks;
 
 namespace Conta
 {
-    public class Cliente
+    class Cliente
     {
         //nome (string), rg (string), cpf (string) e endereco (string). 
-        public string nome { get; set; }
-        public string rg { get; set; }
-        public string cpf { get; set; }
-        public string endereco { get; set; }
-        public int idade { get; set; }
+        public string Nome { get; set; }
+        public string Rg { get; set; }
+        public string Cpf { get; set; }
+        public string Endereco { get; set; }
+        public int Idade { get; set; }
 
-        public bool EhMaiorDeIdade()
+        public Cliente(string nome)
         {
-            return this.idade >= 18;
+            this.Nome = nome;
+        }
+
+        public Cliente() { }
+
+        public bool EhMaiorDeIdade
+        {
+            get
+            {
+                return this.Idade >= 18;
+            }
         }
     }
 }

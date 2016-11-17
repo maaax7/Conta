@@ -6,21 +6,20 @@ using System.Threading.Tasks;
 
 namespace Conta
 {
-    public class Conta
+    class Conta
     {
-        public double saldo { get; set; }
-        public Cliente titular { get; set; }
-        public int numero { get; set; }
-        public int agencia { get; set; }
+        public int Numero { get; set; }
+        public double Saldo { get; private set; }
+        public Cliente Titular { get; set; }
 
         public bool Sacar(double valorASacar)
         {
             double saqueMaximoMenorIdade = 200.0;
-            bool permiteSacar = (this.titular != null && this.titular.EhMaiorDeIdade()) ? true : valorASacar <= saqueMaximoMenorIdade ? true : false;
+            bool permiteSacar = (this.Titular != null && this.Titular.EhMaiorDeIdade) ? true : valorASacar <= saqueMaximoMenorIdade ? true : false;
 
-            if (valorASacar <= this.saldo && valorASacar >= 0 && permiteSacar)
+            if (valorASacar <= this.Saldo && valorASacar >= 0 && permiteSacar)
             {
-                this.saldo -= valorASacar;
+                this.Saldo -= valorASacar;
                 return true;
             }
 
@@ -31,7 +30,7 @@ namespace Conta
         {
             if (valorADepositar >= 0)
             {
-                this.saldo += valorADepositar;
+                this.Saldo += valorADepositar;
             }
         }
 
@@ -43,14 +42,14 @@ namespace Conta
 
         public double CalcularRendimentoAnual()
         {
-            double saldoNaqueleMes = this.saldo;
+            double saldoNaqueleMes = this.Saldo;
 
             for (int i = 0; i < 12; i++)
             {
                 saldoNaqueleMes = saldoNaqueleMes * 1.007;
             }
 
-            double rendimento = saldoNaqueleMes - this.saldo;
+            double rendimento = saldoNaqueleMes - this.Saldo;
 
             return rendimento;
         }
