@@ -22,6 +22,18 @@ namespace Conta
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            GerenciadorDeImposto gi = new GerenciadorDeImposto();
+            ContaInvestimento ci = new ContaInvestimento();
+            ContaPoupanca cp = new ContaPoupanca();
+
+            ci.Deposita(100.0);
+            cp.Deposita(100.0);
+
+            gi.Adiciona(ci);
+            gi.Adiciona(cp);
+
+            MessageBox.Show("O total é: " + gi.Total);
+
             var contaDoVictor = new ContaCorrente();
             contaDoVictor.Titular = "Victor";
             contaDoVictor.Numero = 1;

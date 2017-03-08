@@ -25,7 +25,7 @@ namespace Conta
         }
     }
 
-    class ContaPoupanca : Conta
+    class ContaPoupanca : Conta, ITributavel
     {
         public override void Atualiza(double taxa)
         {
@@ -35,6 +35,11 @@ namespace Conta
         public override void Saca(double valor)
         {
             this.Saldo -= (valor + 0.10);
+        }
+
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.02;
         }
     }
 
@@ -48,6 +53,19 @@ namespace Conta
         public override void Saca(double valor)
         {
             this.Saldo -= valor;
+        }
+    }
+
+    class ContaInvestimento : Conta, ITributavel
+    {
+        public override void Saca(double valor)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.03;
         }
     }
 }
