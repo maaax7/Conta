@@ -22,11 +22,11 @@ namespace Conta
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Conta contaDoVictor = new Conta();
+            var contaDoVictor = new ContaCorrente();
             contaDoVictor.Titular = "Victor";
             contaDoVictor.Numero = 1;
 
-            Conta contaDoMario = new Conta();
+            var contaDoMario = new ContaCorrente();
             contaDoMario.Titular = "Mario";
             contaDoMario.Numero = 2;
 

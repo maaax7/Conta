@@ -8,20 +8,21 @@ namespace Conta
 {
     public class Cliente
     {
-        //nome (string), rg (string), cpf (string) e endereco (string). 
         public string Nome { get; set; }
         public string Rg { get; set; }
-        public string Cpf { get; set; }
+        public string CPF { get; set; }
         public string Endereco { get; set; }
         public int Idade { get; set; }
-
-        public Cliente(string nome)
+        public string[] documentos { get; set; }
+        public bool PodeAbrirContaSozinho
         {
-            this.Nome = nome;
+            get
+            {
+                return (this.Idade >= 18 ||
+                this.documentos.Contains("emancipacao")) &&
+                !string.IsNullOrEmpty(this.CPF);
+            }
         }
-
-        public Cliente() { }
-
         public bool EhMaiorDeIdade
         {
             get
@@ -29,5 +30,12 @@ namespace Conta
                 return this.Idade >= 18;
             }
         }
+
+        public Cliente(string nome)
+        {
+            this.Nome = nome;
+        }
+
+        public Cliente() { }
     }
 }
