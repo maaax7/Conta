@@ -10,6 +10,7 @@ namespace Conta
     {
         public double Saldo { get; protected set; }
         public int Numero { get; set; }
+        public string Titular { get; set; }
 
         public void Deposita(double valor)
         {
