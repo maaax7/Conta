@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Conta
 {
-    class Cliente
+    public class Cliente
     {
         //nome (string), rg (string), cpf (string) e endereco (string). 
         public string Nome { get; set; }

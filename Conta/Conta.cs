@@ -6,52 +6,40 @@ using System.Threading.Tasks;
 
 namespace Conta
 {
-    class Conta
+    public class Conta
     {
+        public double Saldo { get; protected set; }
         public int Numero { get; set; }
-        public double Saldo { get; private set; }
-        public Cliente Titular { get; set; }
 
-        public bool Sacar(double valorASacar)
+        public void Deposita(double valor)
         {
-            double saqueMaximoMenorIdade = 200.0;
-            bool permiteSacar = (this.Titular != null && this.Titular.EhMaiorDeIdade) ? true : valorASacar <= saqueMaximoMenorIdade ? true : false;
-
-            if (valorASacar <= this.Saldo && valorASacar >= 0 && permiteSacar)
-            {
-                this.Saldo -= valorASacar;
-                return true;
-            }
-
-            return false;
+            this.Saldo += valor;
         }
 
-        public void Depositar(double valorADepositar)
+        public void Saca(double valor)
         {
-            if (valorADepositar >= 0)
-            {
-                this.Saldo += valorADepositar;
-            }
+            this.Saldo -= valor;
         }
 
-        public void Transferir(double valorASerTransferido, Conta destino)
+        public virtual void Atualiza(double taxa)
         {
-            this.Sacar(valorASerTransferido);
-            destino.Depositar(valorASerTransferido);
+            this.Saldo += this.Saldo * taxa;
         }
+    }
 
-        public double CalcularRendimentoAnual()
+    class ContaPoupanca : Conta
+    {
+        public override void Atualiza(double taxa)
         {
-            double saldoNaqueleMes = this.Saldo;
+            base.Atualiza(3 * taxa);
+        }
+    }
 
-            for (int i = 0; i < 12; i++)
-            {
-                saldoNaqueleMes = saldoNaqueleMes * 1.007;
-            }
-
-            double rendimento = saldoNaqueleMes - this.Saldo;
-
-            return rendimento;
+    class ContaCorrente : Conta
+    {
+        public override void Atualiza(double taxa)
+        {
+            base.Atualiza(2 * taxa);
         }
     }
 }

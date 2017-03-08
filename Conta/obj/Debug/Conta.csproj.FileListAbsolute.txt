@@ -7,3 +7,12 @@ C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.Properties.R
 C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.csproj.GenerateResource.Cache
 C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.exe
 C:\Users\maxwell.santos\Documents\Alura\Conta\Conta\obj\Debug\Conta.pdb
+C:\Users\apps\Videos\Conta\Conta\bin\Debug\Conta.exe.config
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.exe
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.pdb
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.csprojResolveAssemblyReference.cache
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.Form1.resources
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.Properties.Resources.resources
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.csproj.GenerateResource.Cache
+C:\Users\apps\Videos\Conta\Conta\bin\Debug\Conta.exe
+C:\Users\apps\Videos\Conta\Conta\bin\Debug\Conta.pdb

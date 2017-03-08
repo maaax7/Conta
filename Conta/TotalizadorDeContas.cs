@@ -8,11 +8,11 @@ namespace Conta
 {
     public class TotalizadorDeContas
     {
-        public double Saldo { get; private set; }
+        public double SaldoTotal { get; private set; }
 
-        public void Adiciona(Conta c)
+        public void Adiciona(Conta conta)
         {
-            this.Saldo += c.Saldo;
+            this.SaldoTotal += conta.Saldo;
         }
     }
 }

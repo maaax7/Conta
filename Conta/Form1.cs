@@ -19,17 +19,25 @@ namespace Conta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Conta contaGuilherme = new Conta();
-            
-            Cliente clienteGuilherme = new Cliente();
-            clienteGuilherme.nome = "Guilherme";
-            clienteGuilherme.Idade = 17;
+            Conta c = new Conta();
+            ContaCorrente cc = new ContaCorrente();
+            ContaPoupanca cp = new ContaPoupanca();
 
-            bool sacou = contaGuilherme.Sacar(300.0);
-            if (sacou)
-                MessageBox.Show("Saldo da Conta do Guilherme após saque: ");
-            else
-                MessageBox.Show("Não foi possível sacar da conta do Guilherme");
+            c.Deposita(1000.0);
+            cc.Deposita(1000.0);
+            cp.Deposita(1000.0);
+
+            AtualizadorDeContas atualizador = new AtualizadorDeContas(0.01);
+            atualizador.Roda(c);
+            atualizador.Roda(cc);
+            atualizador.Roda(cp);
+
+            TotalizadorDeContas t = new TotalizadorDeContas();
+            t.Adiciona(cp);
+
+            MessageBox.Show("c = " + c.Saldo);
+            MessageBox.Show("cc = " + cc.Saldo);
+            MessageBox.Show("cp = " + cp.Saldo);
         }
     }
 }
