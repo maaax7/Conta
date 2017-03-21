@@ -43,6 +43,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.destinoDaTransferencia = new System.Windows.Forms.ComboBox();
             this.btnTransferencia = new System.Windows.Forms.Button();
+            this.btnNewAccount = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDeposito
@@ -168,7 +170,7 @@
             // 
             // btnTransferencia
             // 
-            this.btnTransferencia.Location = new System.Drawing.Point(105, 287);
+            this.btnTransferencia.Location = new System.Drawing.Point(12, 300);
             this.btnTransferencia.Name = "btnTransferencia";
             this.btnTransferencia.Size = new System.Drawing.Size(75, 23);
             this.btnTransferencia.TabIndex = 14;
@@ -176,11 +178,33 @@
             this.btnTransferencia.UseVisualStyleBackColor = true;
             this.btnTransferencia.Click += new System.EventHandler(this.btnTransferencia_Click);
             // 
+            // btnNewAccount
+            // 
+            this.btnNewAccount.Location = new System.Drawing.Point(93, 300);
+            this.btnNewAccount.Name = "btnNewAccount";
+            this.btnNewAccount.Size = new System.Drawing.Size(75, 23);
+            this.btnNewAccount.TabIndex = 15;
+            this.btnNewAccount.Text = "Nova Conta";
+            this.btnNewAccount.UseVisualStyleBackColor = true;
+            this.btnNewAccount.Click += new System.EventHandler(this.btnNewAccount_Click);
+            // 
+            // btnRemover
+            // 
+            this.btnRemover.Location = new System.Drawing.Point(174, 300);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(75, 23);
+            this.btnRemover.TabIndex = 16;
+            this.btnRemover.Text = "Remover";
+            this.btnRemover.UseVisualStyleBackColor = true;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 337);
+            this.ClientSize = new System.Drawing.Size(261, 364);
+            this.Controls.Add(this.btnRemover);
+            this.Controls.Add(this.btnNewAccount);
             this.Controls.Add(this.btnTransferencia);
             this.Controls.Add(this.destinoDaTransferencia);
             this.Controls.Add(this.label6);
@@ -221,6 +245,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox destinoDaTransferencia;
         private System.Windows.Forms.Button btnTransferencia;
+        private System.Windows.Forms.Button btnNewAccount;
+        private System.Windows.Forms.Button btnRemover;
     }
 }
 

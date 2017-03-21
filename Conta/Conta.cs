@@ -26,7 +26,7 @@ namespace MaaaX.CaixaEletronico.Investimento
         }
     }
 
-    class ContaPoupanca : Conta, ITributavel
+    public class ContaPoupanca : Conta, ITributavel
     {
         public override void Atualiza(double taxa)
         {
@@ -54,7 +54,7 @@ namespace MaaaX.CaixaEletronico.Investimento
         }
     }
 
-    class ContaCorrente : Conta
+    public class ContaCorrente : Conta
     {
         //Outros atributos da classe
         private static int totalDeContas = 0;
@@ -80,7 +80,7 @@ namespace MaaaX.CaixaEletronico.Investimento
         }
     }
 
-    class ContaInvestimento : Conta, ITributavel
+    public class ContaInvestimento : Conta, ITributavel
     {
         public override void Saca(double valor)
         {

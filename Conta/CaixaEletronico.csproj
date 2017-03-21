@@ -46,6 +46,12 @@
   <ItemGroup>
     <Compile Include="AtualizadorDeContas.cs" />
     <Compile Include="Banco.cs" />
+    <Compile Include="CadastroDeConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroDeConta.Designer.cs">
+      <DependentUpon>CadastroDeConta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
     <Compile Include="Excessoes.cs" />
@@ -62,6 +68,9 @@
     <Compile Include="SeguroDeVida.cs" />
     <Compile Include="TotalizadorDeContas.cs" />
     <Compile Include="TotalizadorDeTributos.cs" />
+    <EmbeddedResource Include="CadastroDeConta.resx">
+      <DependentUpon>CadastroDeConta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
