@@ -57,6 +57,7 @@
             // 
             // comboContas
             // 
+            this.comboContas.DisplayMember = "Numero";
             this.comboContas.FormattingEnabled = true;
             this.comboContas.Location = new System.Drawing.Point(64, 209);
             this.comboContas.Name = "comboContas";
@@ -158,6 +159,7 @@
             // 
             // destinoDaTransferencia
             // 
+            this.destinoDaTransferencia.DisplayMember = "Titular";
             this.destinoDaTransferencia.FormattingEnabled = true;
             this.destinoDaTransferencia.Location = new System.Drawing.Point(64, 246);
             this.destinoDaTransferencia.Name = "destinoDaTransferencia";

@@ -37,5 +37,16 @@ namespace MaaaX.CaixaEletronico.Usuarios
         }
 
         public Cliente() { }
+
+        public override bool Equals(object obj)
+        {
+            Cliente outroCliente = (Cliente)obj;
+            return this.Rg == outroCliente.Rg;
+        }
+
+        public override string ToString()
+        {
+            return "Nome: " + this.Nome + "RG: " + this.Rg;
+        }
     }
 }

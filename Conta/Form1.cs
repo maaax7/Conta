@@ -48,8 +48,8 @@ namespace MaaaX.CaixaEletronico.Main
 
             foreach (MaaaX.CaixaEletronico.Investimento.Conta conta in contas)
             {
-                comboContas.Items.Add(conta.Titular);
-                destinoDaTransferencia.Items.Add(conta.Titular);
+                comboContas.Items.Add(conta);
+                destinoDaTransferencia.Items.Add(conta);
             }
         }
 
