@@ -48,6 +48,7 @@
     <Compile Include="Banco.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Conta.cs" />
+    <Compile Include="Excessoes.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

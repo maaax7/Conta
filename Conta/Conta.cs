@@ -34,6 +34,16 @@ namespace Conta
 
         public override void Saca(double valor)
         {
+            if (valor < 0)
+            {
+                throw new ArgumentException();
+            }
+
+            if (valor > this.Saldo)
+            {
+                throw new SaldoInsuficienteException("Valor do saque maior que o saldo");
+            }
+
             this.Saldo -= (valor + 0.10);
         }
 

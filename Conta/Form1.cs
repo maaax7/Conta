@@ -32,9 +32,7 @@ namespace Conta
             gi.Adiciona(ci);
             gi.Adiciona(cp);
 
-            MessageBox.Show("O total é: " + gi.Total);
-
-            var contaDoVictor = new ContaCorrente();
+            var contaDoVictor = new ContaPoupanca();
             contaDoVictor.Titular = "Victor";
             contaDoVictor.Numero = 1;
 
@@ -91,7 +89,20 @@ namespace Conta
             Conta contaSelecionada = this.GetConta(comboContas);
             double valor = Convert.ToDouble(txtValor.Text);
 
-            contaSelecionada.Saca(valor);
+            try
+            {
+                contaSelecionada.Saca(valor);
+                MessageBox.Show("Dinheiro Liberado");
+            }
+            catch (SaldoInsuficienteException ex)
+            {
+                MessageBox.Show("Saldo insuficiente");
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show("Não é possível sacar um valor negativo");
+            }
+
             this.MostraConta(contaSelecionada);
         }
 
