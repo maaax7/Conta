@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MaaaX.CaixaEletronico.Investimento;
+using MaaaX.CaixaEletronico.Excessao;
 
-namespace Conta
+namespace MaaaX.CaixaEletronico.Main
 {
     public partial class Form1 : Form
     {
-        Conta[] contas;
+        MaaaX.CaixaEletronico.Investimento.Conta[] contas;
 
         public Form1()
         {
@@ -40,11 +42,11 @@ namespace Conta
             contaDoMario.Titular = "Mario";
             contaDoMario.Numero = 2;
 
-            this.contas = new Conta[2];
+            this.contas = new MaaaX.CaixaEletronico.Investimento.Conta[2];
             this.contas[0] = contaDoVictor;
             this.contas[1] = contaDoMario;
 
-            foreach (Conta conta in contas)
+            foreach (MaaaX.CaixaEletronico.Investimento.Conta conta in contas)
             {
                 comboContas.Items.Add(conta.Titular);
                 destinoDaTransferencia.Items.Add(conta.Titular);
@@ -53,18 +55,18 @@ namespace Conta
 
         private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Conta contaSelecionada = this.GetConta(sender);
+            MaaaX.CaixaEletronico.Investimento.Conta contaSelecionada = this.GetConta(sender);
             this.MostraConta(contaSelecionada);
         }
 
-        private void MostraConta(Conta c)
+        private void MostraConta(MaaaX.CaixaEletronico.Investimento.Conta c)
         {
             txtTitular.Text = c.Titular;
             txtSaldo.Text = c.Saldo.ToString();
             txtNumero.Text = c.Numero.ToString();
         }
 
-        private Conta GetConta(object sender)
+        private MaaaX.CaixaEletronico.Investimento.Conta GetConta(object sender)
         {
             int indiceContaSelecionada = 0;
             if (sender.GetType() == typeof(ComboBox))
@@ -77,7 +79,7 @@ namespace Conta
 
         private void btnDeposito_Click(object sender, EventArgs e)
         {
-            Conta contaSelecionada = this.GetConta(comboContas);
+            MaaaX.CaixaEletronico.Investimento.Conta contaSelecionada = this.GetConta(comboContas);
             double valor = Convert.ToDouble(txtValor.Text);
 
             contaSelecionada.Deposita(valor);
@@ -86,7 +88,7 @@ namespace Conta
 
         private void btnSaque_Click(object sender, EventArgs e)
         {
-            Conta contaSelecionada = this.GetConta(comboContas);
+            MaaaX.CaixaEletronico.Investimento.Conta contaSelecionada = this.GetConta(comboContas);
             double valor = Convert.ToDouble(txtValor.Text);
 
             try
@@ -108,8 +110,8 @@ namespace Conta
 
         private void btnTransferencia_Click(object sender, EventArgs e)
         {
-            Conta contaDe = this.GetConta(comboContas);
-            Conta contaPara = this.GetConta(destinoDaTransferencia);
+            MaaaX.CaixaEletronico.Investimento.Conta contaDe = this.GetConta(comboContas);
+            MaaaX.CaixaEletronico.Investimento.Conta contaPara = this.GetConta(destinoDaTransferencia);
             double valor = Convert.ToDouble(txtValor.Text);
 
             contaDe.Saca(valor);

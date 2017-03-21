@@ -1,4 +1,4 @@
-﻿namespace Conta
+﻿namespace MaaaX.CaixaEletronico.Main
 {
     partial class Form1
     {
