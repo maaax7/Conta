@@ -45,6 +45,19 @@ namespace Conta
 
     class ContaCorrente : Conta
     {
+        //Outros atributos da classe
+        private static int totalDeContas = 0;
+
+        public ContaCorrente()
+        {
+            totalDeContas++;
+        }
+
+        public static int ProximaConta()
+        {
+            return totalDeContas + 1;
+        }
+
         public override void Atualiza(double taxa)
         {
             base.Atualiza(2 * taxa);
