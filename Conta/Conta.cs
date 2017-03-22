@@ -24,6 +24,11 @@ namespace MaaaX.CaixaEletronico.Investimento
         {
             this.Saldo += this.Saldo * taxa;
         }
+
+        public override bool Equals(object obj)
+        {
+            return false;
+        }
     }
 
     public class ContaPoupanca : Conta, ITributavel

@@ -16,7 +16,7 @@ namespace MaaaX.CaixaEletronico.Main
 {
     public partial class Form1 : Form
     {
-        List<Investimento.Conta> contas;
+        HashSet<Investimento.Conta> contas;
 
         public Form1()
         {
@@ -43,9 +43,42 @@ namespace MaaaX.CaixaEletronico.Main
             contaDoMario.Titular = "Mario";
             contaDoMario.Numero = 2;
 
-            this.contas = new List<Investimento.Conta>();
+            this.contas = new HashSet<Investimento.Conta>();
             this.contas.Add(contaDoVictor);
-            this.contas.Add(contaDoMario);
+            this.contas.Add(contaDoVictor);
+
+
+            //this.contas.Clear();
+            //MessageBox.Show(this.contas.Count.ToString());
+
+            //SortedSet<string> palavras = new SortedSet<string>();
+            //palavras.Add("vida");
+            //palavras.Add("furadeira");
+            //palavras.Add("maçã");
+            //foreach (string palavra in palavras)
+            //{
+            //    MessageBox.Show(palavra);
+            //}
+
+            //Dictionary<string, string> nomesEPalavras = new Dictionary<string, string>();
+            //nomesEPalavras.Add("Erich", "vida");
+            //nomesEPalavras.Add("Alberto", "delicia");
+
+            //foreach (var i in nomesEPalavras)
+            //{
+            //    MessageBox.Show(i.Key + "->" + i.Value);
+            //}
+
+            //SortedDictionary<string, string> nomes = new SortedDictionary<string, string>();
+            //nomes.Add("Adriano", "Almeida");
+            //nomes.Add("Mario", "Amaral");
+            //nomes.Add("Eric", "Torti");
+            //nomes.Add("Guilherme", "Silveira");
+
+            //foreach (var i in nomes)
+            //{
+            //    MessageBox.Show(i.Key + " " + i.Value);
+            //}
 
             foreach (Investimento.Conta conta in contas)
             {
@@ -83,7 +116,8 @@ namespace MaaaX.CaixaEletronico.Main
                 ComboBox combo = (ComboBox)sender;
                 indiceContaSelecionada = combo.SelectedIndex;
             }
-            return contas[indiceContaSelecionada];
+
+            return contas.FirstOrDefault(); //contas[indiceContaSelecionada];
         }
 
         private void btnDeposito_Click(object sender, EventArgs e)
