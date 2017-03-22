@@ -1,10 +1,10 @@
-C:\Users\apps\Videos\Conta\Conta\obj\Debug\CaixaEletronico.csprojResolveAssemblyReference.cache
-C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.Properties.Resources.resources
-C:\Users\apps\Videos\Conta\Conta\obj\Debug\CaixaEletronico.csproj.GenerateResource.Cache
-C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.exe
-C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.pdb
-C:\Users\apps\Videos\Conta\Conta\obj\Debug\MaaaX.CaixaEletronico.Main.Form1.resources
 C:\Users\apps\Videos\Conta\Conta\bin\Debug\Conta.exe.config
 C:\Users\apps\Videos\Conta\Conta\bin\Debug\Conta.exe
 C:\Users\apps\Videos\Conta\Conta\bin\Debug\Conta.pdb
 C:\Users\apps\Videos\Conta\Conta\obj\Debug\MaaaX.CaixaEletronico.CadastroConta.CadastroDeConta.resources
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\MaaaX.CaixaEletronico.Main.Form1.resources
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.Properties.Resources.resources
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\CaixaEletronico.csproj.GenerateResource.Cache
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.exe
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\Conta.pdb
+C:\Users\apps\Videos\Conta\Conta\obj\Debug\CaixaEletronico.csprojResolveAssemblyReference.cache

@@ -1,15 +1,17 @@
 ﻿using MaaaX.CaixaEletronico.Excessao;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace MaaaX.CaixaEletronico.Investimento
 {
     public abstract class Conta
     {
-        public double Saldo { get; protected set; }
+        public double Saldo { get; set; }
         public int Numero { get; set; }
         public string Titular { get; set; }
 
@@ -96,6 +98,16 @@ namespace MaaaX.CaixaEletronico.Investimento
         public double CalculaTributo()
         {
             return this.Saldo * 0.03;
+        }
+    }
+
+    public class Serializer
+    {
+        public static string AsXml(Conta resource)
+        {
+            var stringWriter = new StringWriter();
+            new XmlSerializer(resource.GetType()).Serialize(stringWriter, resource);
+            return stringWriter.ToString();
         }
     }
 }

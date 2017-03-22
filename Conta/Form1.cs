@@ -12,6 +12,7 @@ using MaaaX.CaixaEletronico.Investimento;
 using MaaaX.CaixaEletronico.Excessao;
 using MaaaX.CaixaEletronico.CadastroConta;
 using System.IO;
+using MaaaX.CaixaEletronico.Util;
 
 namespace MaaaX.CaixaEletronico.Main
 {
@@ -82,27 +83,35 @@ namespace MaaaX.CaixaEletronico.Main
             //    MessageBox.Show(i.Key + " " + i.Value);
             //}
 
-            if (File.Exists("entrada.txt"))
+            //if (File.Exists("entrada.txt"))
+            //{
+            //    using (Stream entrada = File.Open("entrada.txt", FileMode.Open))
+            //    using (StreamReader leitor = new StreamReader(entrada))
+            //    {
+            //        //ler byte do stream
+            //        //byte b = (byte)entrada.ReadByte();
+            //        string linha = leitor.ReadToEnd();
+            //        MessageBox.Show(linha);
+            //    }
+
+            //}
+
+            //using (Stream saida = File.Open("saida.txt", FileMode.Create))
+            //using (StreamWriter escritor = new StreamWriter(saida))
+            //    escritor.WriteLine(txtTitular.Text);
+
+            string texto = "banco";
+            string plural = texto.Pluralize();
+            MessageBox.Show(plural);
+
+            Investimento.Conta conta = new Investimento.ContaCorrente();
+            //MessageBox.Show(Investimento.Serializer.AsXml(conta));
+            MessageBox.Show(conta.AsXml());
+
+            foreach (Investimento.Conta c in contas)
             {
-                using (Stream entrada = File.Open("entrada.txt", FileMode.Open))
-                using (StreamReader leitor = new StreamReader(entrada))
-                {
-                    //ler byte do stream
-                    //byte b = (byte)entrada.ReadByte();
-                    string linha = leitor.ReadToEnd();
-                    MessageBox.Show(linha);
-                }
-
-            }
-
-            using (Stream saida = File.Open("saida.txt", FileMode.Create))
-            using (StreamWriter escritor = new StreamWriter(saida))
-                escritor.WriteLine(txtTitular.Text);
-
-            foreach (Investimento.Conta conta in contas)
-            {
-                comboContas.Items.Add(conta);
-                destinoDaTransferencia.Items.Add(conta);
+                comboContas.Items.Add(c);
+                destinoDaTransferencia.Items.Add(c);
             }
         }
 
