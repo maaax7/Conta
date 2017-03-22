@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MaaaX.CaixaEletronico.Investimento;
 using MaaaX.CaixaEletronico.Excessao;
 using MaaaX.CaixaEletronico.CadastroConta;
+using System.IO;
 
 namespace MaaaX.CaixaEletronico.Main
 {
@@ -43,14 +44,15 @@ namespace MaaaX.CaixaEletronico.Main
             contaDoMario.Titular = "Mario";
             contaDoMario.Numero = 2;
 
+            //HashSet nao permite inserir conteudo duplicado
             this.contas = new HashSet<Investimento.Conta>();
             this.contas.Add(contaDoVictor);
             this.contas.Add(contaDoVictor);
 
-
             //this.contas.Clear();
             //MessageBox.Show(this.contas.Count.ToString());
 
+            //Utilizando SortedSet - ordena itens em ordem crescente
             //SortedSet<string> palavras = new SortedSet<string>();
             //palavras.Add("vida");
             //palavras.Add("furadeira");
@@ -60,25 +62,42 @@ namespace MaaaX.CaixaEletronico.Main
             //    MessageBox.Show(palavra);
             //}
 
+            //Utilizando Dictionary
             //Dictionary<string, string> nomesEPalavras = new Dictionary<string, string>();
             //nomesEPalavras.Add("Erich", "vida");
             //nomesEPalavras.Add("Alberto", "delicia");
-
             //foreach (var i in nomesEPalavras)
             //{
             //    MessageBox.Show(i.Key + "->" + i.Value);
             //}
 
+            //Utilizando sortedDictionary
             //SortedDictionary<string, string> nomes = new SortedDictionary<string, string>();
             //nomes.Add("Adriano", "Almeida");
             //nomes.Add("Mario", "Amaral");
             //nomes.Add("Eric", "Torti");
             //nomes.Add("Guilherme", "Silveira");
-
             //foreach (var i in nomes)
             //{
             //    MessageBox.Show(i.Key + " " + i.Value);
             //}
+
+            if (File.Exists("entrada.txt"))
+            {
+                using (Stream entrada = File.Open("entrada.txt", FileMode.Open))
+                using (StreamReader leitor = new StreamReader(entrada))
+                {
+                    //ler byte do stream
+                    //byte b = (byte)entrada.ReadByte();
+                    string linha = leitor.ReadToEnd();
+                    MessageBox.Show(linha);
+                }
+
+            }
+
+            using (Stream saida = File.Open("saida.txt", FileMode.Create))
+            using (StreamWriter escritor = new StreamWriter(saida))
+                escritor.WriteLine(txtTitular.Text);
 
             foreach (Investimento.Conta conta in contas)
             {

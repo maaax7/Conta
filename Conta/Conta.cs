@@ -25,10 +25,11 @@ namespace MaaaX.CaixaEletronico.Investimento
             this.Saldo += this.Saldo * taxa;
         }
 
-        public override bool Equals(object obj)
-        {
-            return false;
-        }
+        //Confunde a comparação ao se utilizar Hashset, fazendo-o aceitar objetos iguais
+        //public override bool Equals(object obj)
+        //{
+        //    return false;
+        //}
     }
 
     public class ContaPoupanca : Conta, ITributavel
