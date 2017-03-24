@@ -1,4 +1,5 @@
-﻿using MaaaX.CaixaEletronico.Excessao;
+﻿using Conta.CaixaEletronico.Excessao;
+using Conta.CaixaEletronico.Imposto;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace MaaaX.CaixaEletronico.Investimento
+namespace Conta.CaixaEletronico.DadosConta
 {
     public abstract class Conta
     {

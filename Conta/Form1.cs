@@ -8,17 +8,18 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaaaX.CaixaEletronico.Investimento;
-using MaaaX.CaixaEletronico.Excessao;
-using MaaaX.CaixaEletronico.CadastroConta;
+using Conta.CaixaEletronico.Excessao;
 using System.IO;
-using MaaaX.CaixaEletronico.Util;
+using Conta.CaixaEletronico.Util;
+using Conta.CaixaEletronico.Imposto;
+using Conta.CaixaEletronico.DadosConta;
+using Conta.CaixaEletronico.CadastroConta;
 
-namespace MaaaX.CaixaEletronico.Main
+namespace Conta.CaixaEletronico.Main
 {
     public partial class Form1 : Form
     {
-        HashSet<Investimento.Conta> contas;
+        HashSet<DadosConta.Conta> contas;
 
         public Form1()
         {
@@ -31,7 +32,7 @@ namespace MaaaX.CaixaEletronico.Main
             ContaInvestimento ci = new ContaInvestimento();
             ContaPoupanca cp = new ContaPoupanca();
 
-            ci.Deposita(100.0);
+            ci.Deposita(275.0);
             cp.Deposita(100.0);
 
             gi.Adiciona(ci);
@@ -46,7 +47,7 @@ namespace MaaaX.CaixaEletronico.Main
             contaDoMario.Numero = 2;
 
             //HashSet nao permite inserir conteudo duplicado
-            this.contas = new HashSet<Investimento.Conta>();
+            this.contas = new HashSet<DadosConta.Conta>();
             this.contas.Add(contaDoVictor);
             this.contas.Add(contaDoVictor);
 
@@ -104,18 +105,22 @@ namespace MaaaX.CaixaEletronico.Main
             string plural = texto.Pluralize();
             MessageBox.Show(plural);
 
-            Investimento.Conta conta = new Investimento.ContaCorrente();
+            DadosConta.Conta conta = new ContaCorrente();
             //MessageBox.Show(Investimento.Serializer.AsXml(conta));
             MessageBox.Show(conta.AsXml());
 
-            foreach (Investimento.Conta c in contas)
+            RealizadorDeInvestimentos investimento = new RealizadorDeInvestimentos();
+            investimento.Investir(ci, new Moderado());
+
+
+            foreach (DadosConta.Conta c in contas)
             {
                 comboContas.Items.Add(c);
                 destinoDaTransferencia.Items.Add(c);
             }
         }
 
-        public void AdicionaConta(Investimento.Conta conta)
+        public void AdicionaConta(DadosConta.Conta conta)
         {
             this.contas.Add(conta);
 
@@ -125,18 +130,18 @@ namespace MaaaX.CaixaEletronico.Main
 
         private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Investimento.Conta contaSelecionada = this.GetConta(sender);
+            DadosConta.Conta contaSelecionada = this.GetConta(sender);
             this.MostraConta(contaSelecionada);
         }
 
-        private void MostraConta(Investimento.Conta c)
+        private void MostraConta(DadosConta.Conta c)
         {
             txtTitular.Text = c.Titular;
             txtSaldo.Text = c.Saldo.ToString();
             txtNumero.Text = c.Numero.ToString();
         }
 
-        private Investimento.Conta GetConta(object sender)
+        private DadosConta.Conta GetConta(object sender)
         {
             int indiceContaSelecionada = 0;
             if (sender.GetType() == typeof(ComboBox))
@@ -150,7 +155,7 @@ namespace MaaaX.CaixaEletronico.Main
 
         private void btnDeposito_Click(object sender, EventArgs e)
         {
-            Investimento.Conta contaSelecionada = this.GetConta(comboContas);
+            DadosConta.Conta contaSelecionada = this.GetConta(comboContas);
             double valor = Convert.ToDouble(txtValor.Text);
 
             contaSelecionada.Deposita(valor);
@@ -159,7 +164,7 @@ namespace MaaaX.CaixaEletronico.Main
 
         private void btnSaque_Click(object sender, EventArgs e)
         {
-            Investimento.Conta contaSelecionada = this.GetConta(comboContas);
+            DadosConta.Conta contaSelecionada = this.GetConta(comboContas);
             double valor = Convert.ToDouble(txtValor.Text);
 
             try
@@ -181,8 +186,8 @@ namespace MaaaX.CaixaEletronico.Main
 
         private void btnTransferencia_Click(object sender, EventArgs e)
         {
-            Investimento.Conta contaDe = this.GetConta(comboContas);
-            Investimento.Conta contaPara = this.GetConta(destinoDaTransferencia);
+            DadosConta.Conta contaDe = this.GetConta(comboContas);
+            DadosConta.Conta contaPara = this.GetConta(destinoDaTransferencia);
             double valor = Convert.ToDouble(txtValor.Text);
 
             contaDe.Saca(valor);
@@ -199,7 +204,7 @@ namespace MaaaX.CaixaEletronico.Main
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            var contaSelecionada = (Investimento.Conta)comboContas.SelectedItem;
+            var contaSelecionada = (DadosConta.Conta)comboContas.SelectedItem;
 
             this.contas.Remove(contaSelecionada);
             comboContas.Items.Remove(contaSelecionada);

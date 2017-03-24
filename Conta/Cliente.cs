@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaaaX.CaixaEletronico.Usuarios
+namespace Conta.CaixaEletronico.Usuarios
 {
     public class Cliente
     {

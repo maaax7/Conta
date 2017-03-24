@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaaaX.CaixaEletronico.Excessao
+namespace Conta.CaixaEletronico.Excessao
 {
     class SaldoInsuficienteException : Exception
     {

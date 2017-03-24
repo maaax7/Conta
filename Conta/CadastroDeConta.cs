@@ -1,5 +1,4 @@
-﻿using MaaaX.CaixaEletronico.Investimento;
-using MaaaX.CaixaEletronico.Main;
+﻿using Conta.CaixaEletronico.Main;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MaaaX.CaixaEletronico.CadastroConta
+namespace Conta.CaixaEletronico.CadastroConta
 {
     public partial class CadastroDeConta : Form
     {
@@ -28,14 +27,14 @@ namespace MaaaX.CaixaEletronico.CadastroConta
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            Investimento.Conta novaConta = null;
+            DadosConta.Conta novaConta = null;
 
             if (cbTipoConta.Text == "Corrente")
-                novaConta = new ContaCorrente();
+                novaConta = new DadosConta.ContaCorrente();
             else if (cbTipoConta.Text == "Poupanca")
-                novaConta = new ContaPoupanca();
+                novaConta = new DadosConta.ContaPoupanca();
             else
-                novaConta = new ContaInvestimento();
+                novaConta = new DadosConta.ContaInvestimento();
 
             novaConta.Titular = txtTitular.Text;
             novaConta.Numero = Convert.ToInt32(txtNumeroConta.Text);

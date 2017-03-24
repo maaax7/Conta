@@ -1,4 +1,4 @@
-﻿namespace MaaaX.CaixaEletronico.CadastroConta
+﻿namespace Conta.CaixaEletronico.CadastroConta
 {
     partial class CadastroDeConta
     {
